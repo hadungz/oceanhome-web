@@ -1684,25 +1684,25 @@
       <p>Để lại thông tin, Kiến trúc sư &amp; Kỹ sư Ocean Home sẽ liên hệ hỗ trợ bạn ngay.</p>
       <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Ocean Home đã nhận thông tin đặt lịch.'); closeBookingModal();">
         <div class="form-group">
-          <label>Họ và tên *</label>
-          <input type="text" required="" placeholder="Nhập họ tên của bạn...">
+          <label for="booking-name">Họ và tên *</label>
+          <input type="text" id="booking-name" name="full_name" autocomplete="name" required placeholder="Nhập họ tên của bạn...">
         </div>
         <div class="form-group">
-          <label>Số điện thoại / Zalo *</label>
-          <input type="tel" required="" placeholder="Ví dụ: 0903 489 238">
+          <label for="booking-phone">Số điện thoại / Zalo *</label>
+          <input type="tel" id="booking-phone" name="phone" autocomplete="tel" required placeholder="Ví dụ: 0903 489 238">
         </div>
         <div class="form-group">
-          <label>Hạng mục quan tâm</label>
-          <select>
-            <option>Thiết kế &amp; Thi công trọn gói Nhà ở / Biệt thự</option>
-            <option>Thiết kế kiến trúc - nội thất</option>
-            <option>Thi công Văn phòng / Khách sạn / Nhà xưởng</option>
-            <option>Cung cấp vật tư &amp; Tư vấn pháp lý xây dựng</option>
+          <label for="booking-service">Hạng mục quan tâm</label>
+          <select id="booking-service" name="service">
+            <option value="tron-goi">Thiết kế &amp; Thi công trọn gói Nhà ở / Biệt thự</option>
+            <option value="thiet-ke">Thiết kế kiến trúc - nội thất</option>
+            <option value="cong-nghiep">Thi công Văn phòng / Khách sạn / Nhà xưởng</option>
+            <option value="vat-tu-phap-ly">Cung cấp vật tư &amp; Tư vấn pháp lý xây dựng</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Ghi chú diện tích / Khu vực xây dựng</label>
-          <textarea rows="3" placeholder="Ví dụ: Đất 100m2 tại Hà Nội, dự kiến xây 4 tầng..."></textarea>
+          <label for="booking-note">Ghi chú diện tích / Khu vực xây dựng</label>
+          <textarea id="booking-note" name="note" rows="3" placeholder="Ví dụ: Đất 100m2 tại Hà Nội, dự kiến xây 4 tầng..."></textarea>
         </div>
         <button type="submit" class="btn-primary-arte" style="width:100%;">Gửi Yêu Cầu Đặt Lịch</button>
       </form>
