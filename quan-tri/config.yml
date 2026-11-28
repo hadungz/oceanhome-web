@@ -24,7 +24,11 @@ collections:
               - label: "Loại công trình (Tự động cập nhật vào Lĩnh vực xây dựng)"
                 name: "category"
                 widget: "select"
-                options: ["Nhà Phố", "Biệt Thự", "Văn Phòng", "Khách Sạn", "Công Nghiệp"]
+                - label: "Loại công trình"
+                name: "category"
+                widget: "select"
+                options: ["Nhà Phố", "Biệt Thự", "Văn Phòng", "Khách Sạn"]
+                default: "Nhà Phố"
                 default: "Nhà Phố"
               - { label: "Đưa ra Dự án nổi bật (Trang chủ)", name: "featured", widget: "boolean", default: true }
               - { label: "Chủ đầu tư", name: "client", widget: "string", required: false, hint: "Ví dụ: Anh Nam" }
