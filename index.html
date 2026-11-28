@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://oceanhome.vn/">
 
   <!-- Favicon hiển thị logo trên tab trình duyệt & Google Search -->
-<link rel="icon" type="image/png" sizes="96x96" href="https://oceanhome.vn/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://oceanhome.vn/images/favicon.png">
   <link rel="icon" type="image/png" sizes="48x48" href="https://oceanhome.vn/images/favicon.png">
   <link rel="shortcut icon" type="image/png" href="https://oceanhome.vn/images/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://oceanhome.vn/images/favicon.png">
@@ -133,7 +133,7 @@
       padding: 0 24px;
     }
 
-    /* ===== 1. HEADER CHUẨN ARTECO ===== */
+    /* ===== 1. HEADER ===== */
     .site-header {
       background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(10px);
@@ -620,7 +620,7 @@
       100% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0); }
     }
 
-    /* ===== TIÊU ĐỀ SECTION CHUẨN ARTECO ===== */
+    /* ===== TIÊU ĐỀ SECTION ===== */
     .section-header {
       margin-bottom: 36px;
       display: flex;
@@ -740,6 +740,7 @@
     }
 
     .sector-item {
+      display: block;
       position: relative;
       height: 240px;
       border-radius: var(--radius-lg);
@@ -946,7 +947,7 @@
       border-top: 1px dashed var(--border);
     }
 
-    /* ===== 7. CTA & FOOTER CHUẨN ARTECO ===== */
+    /* ===== 7. CTA & FOOTER ===== */
     .cta-banner {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       padding: 56px 0;
@@ -1327,7 +1328,7 @@
           <li><a href="#trang-chu" class="active" data-editable="true">Trang chủ</a></li>
           <li><a href="#ve-chung-toi" data-editable="true">Về chúng tôi</a></li>
           <li><a href="#dich-vu" data-editable="true">Dịch vụ</a></li>
-          <li><a href="#du-an" data-editable="true">Dự án</a></li>
+          <li><a href="du-an.html" data-editable="true">Dự án</a></li>
           <li><a href="#lien-he" data-editable="true">Liên hệ</a></li>
         </ul>
 
@@ -1378,7 +1379,7 @@
           <li><a href="#trang-chu" onclick="closeMobileMenu()">Trang chủ</a></li>
           <li><a href="#ve-chung-toi" onclick="closeMobileMenu()">Về chúng tôi</a></li>
           <li><a href="#dich-vu" onclick="closeMobileMenu()">Dịch vụ</a></li>
-          <li><a href="#du-an" onclick="closeMobileMenu()">Dự án</a></li>
+          <li><a href="du-an.html" onclick="closeMobileMenu()">Dự án</a></li>
           <li><a href="#lien-he" onclick="closeMobileMenu()">Liên hệ</a></li>
         </ul>
       </div>
@@ -1412,7 +1413,7 @@
           <p data-editable="true">Đồng hành cùng chủ đầu tư từ ý tưởng kiến trúc, hồ sơ kỹ thuật đến thi công hoàn thiện chuẩn mực với đội ngũ Kiến trúc sư, Kỹ sư giàu kinh nghiệm.</p>
           <div class="hero-cta-group">
             <button type="button" class="btn-primary-arte" onclick="openBookingModal()" data-editable="true">Nhận Tư Vấn Ngay ↗</button>
-            <a href="#du-an" class="btn-glass-arte" data-editable="true">Xem Dự Án Tiêu Biểu</a>
+            <a href="du-an.html" class="btn-glass-arte" data-editable="true">Xem Dự Án Tiêu Biểu</a>
           </div>
         </div>
       </div>
@@ -1471,41 +1472,41 @@
         </div>
       </div>
 
-      <div class="sectors-list">
-        <div class="sector-item">
+      <div class="sectors-list" id="home-sectors-list">
+        <a href="du-an.html?cat=Nhà Phố" class="sector-item" data-sector="Nhà Phố">
           <div class="sector-thumb">
             <img class="editable-img" src="images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà phố hiện đại">
           </div>
           <div class="sector-name" data-editable="true">Nhà Phố</div>
-        </div>
+        </a>
 
-        <div class="sector-item">
+        <a href="du-an.html?cat=Biệt Thự" class="sector-item" data-sector="Biệt Thự">
           <div class="sector-thumb">
             <img class="editable-img" src="images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Thiết kế thi công biệt thự trọn gói">
           </div>
           <div class="sector-name" data-editable="true">Biệt thự</div>
-        </div>
+        </a>
 
-        <div class="sector-item">
+        <a href="du-an.html?cat=Văn Phòng" class="sector-item" data-sector="Văn Phòng">
           <div class="sector-thumb">
             <img class="editable-img" src="images/Thiet ke nha pho.webp" loading="lazy" decoding="async" alt="Thiết kế thi công tòa nhà văn phòng">
           </div>
           <div class="sector-name" data-editable="true">Văn Phòng</div>
-        </div>
+        </a>
 
-        <div class="sector-item">
+        <a href="du-an.html?cat=Khách Sạn" class="sector-item" data-sector="Khách Sạn">
           <div class="sector-thumb">
             <img class="editable-img" src="images/Thiet ke nha 1 tang hien dai.webp" loading="lazy" decoding="async" alt="Thiết kế thi công khách sạn nghỉ dưỡng">
           </div>
           <div class="sector-name" data-editable="true">Khách Sạn</div>
-        </div>
+        </a>
 
-        <div class="sector-item">
+        <a href="du-an.html?cat=Công Nghiệp" class="sector-item" data-sector="Công Nghiệp">
           <div class="sector-thumb">
             <img class="editable-img" src="images/nha-mai-nhat.webp" loading="lazy" decoding="async" alt="Thi công xây dựng công trình công nghiệp">
           </div>
           <div class="sector-name" data-editable="true">Công Nghiệp</div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -1580,11 +1581,12 @@
           <span class="section-eyebrow" data-editable="true">Công trình thực tế</span>
           <h2 class="section-title" data-editable="true">Dự Án Nổi Bật</h2>
         </div>
+        <a href="du-an.html" class="btn-outline-arrow">Xem tất cả dự án →</a>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-grid" id="home-projects-grid">
         <!-- Dự án 1 -->
-        <article class="project-card">
+        <article class="project-card" onclick="window.location.href='du-an.html'" style="cursor:pointer;">
           <div class="project-img-wrap">
             <img class="editable-img" src="images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà phố 3 tầng 60m2 anh Nam Hà Nội">
           </div>
@@ -1598,7 +1600,7 @@
         </article>
 
         <!-- Dự án 2 -->
-        <article class="project-card">
+        <article class="project-card" onclick="window.location.href='du-an.html'" style="cursor:pointer;">
           <div class="project-img-wrap">
             <img class="editable-img" src="images/Thiet ke nha mai thai 1 tang.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà vườn 160m2 anh Quân Phú Thọ">
           </div>
@@ -1609,7 +1611,7 @@
         </article>
 
         <!-- Dự án 3 -->
-        <article class="project-card">
+        <article class="project-card" onclick="window.location.href='du-an.html'" style="cursor:pointer;">
           <div class="project-img-wrap">
             <img class="editable-img" src="images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Thiết kế thi công biệt thự 120m2 chú Minh Ba Vì">
           </div>
@@ -1620,7 +1622,7 @@
         </article>
 
         <!-- Dự án 4 -->
-        <article class="project-card">
+        <article class="project-card" onclick="window.location.href='du-an.html'" style="cursor:pointer;">
           <div class="project-img-wrap">
             <img class="editable-img" src="images/Nha mai thai.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà mái Thái 160m2 chị Hương Hưng Yên">
           </div>
@@ -1757,6 +1759,49 @@
     function closeBookingModal() {
       document.getElementById('booking-modal').classList.remove('open');
     }
+
+    // Tự động đồng bộ dữ liệu từ trang quản trị (data/projects.json)
+    (async function syncHomeWithCMS() {
+      try {
+        const res = await fetch('data/projects.json?v=' + Date.now());
+        if (!res.ok) return;
+        const data = await res.json();
+        const items = data.items || [];
+        if (!items.length) return;
+
+        // 1. Tự động cập nhật ảnh đại diện mới nhất cho từng Lĩnh Vực Xây Dựng
+        document.querySelectorAll('#home-sectors-list .sector-item').forEach(card => {
+          const sectorName = card.getAttribute('data-sector');
+          const matched = items.filter(p => (p.category || '').toLowerCase() === sectorName.toLowerCase());
+          if (matched.length > 0 && matched[0].cover) {
+            const img = card.querySelector('img');
+            if (img) img.src = matched[0].cover;
+          }
+        });
+
+        // 2. Tự động cập nhật 4 dự án ở mục Dự Án Nổi Bật
+        const featured = items.filter(p => p.featured !== false).slice(0, 4);
+        const listToRender = featured.length ? featured : items.slice(0, 4);
+        const grid = document.getElementById('home-projects-grid');
+        if (grid) {
+          grid.innerHTML = listToRender.map(p => `
+            <article class="project-card" onclick="window.location.href='du-an.html'" style="cursor:pointer;">
+              <div class="project-img-wrap">
+                <img src="${p.cover}" loading="lazy" decoding="async" alt="${p.title}">
+              </div>
+              <div class="project-content">
+                <h3 class="project-header-title">${p.title}</h3>
+                <div class="project-specs">
+                  ${p.client ? `Chủ đầu tư: ${p.client}` : ''}
+                  <div>Địa Chỉ: ${p.address || ''}<br>
+                  Diện tích: ${p.area || ''}</div>
+                </div>
+              </div>
+            </article>
+          `).join('');
+        }
+      } catch (e) {}
+    })();
   </script>
 
 </body></html>
