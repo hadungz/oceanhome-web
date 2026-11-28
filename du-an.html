@@ -305,20 +305,11 @@
       });
     });
 
-    function openArticle(index) {
-      const p = allProjects[index];
-      if (!p) return;
-      document.getElementById('modal-cat').textContent = p.category || 'Công trình thực tế';
-      document.getElementById('modal-title').textContent = p.title;
-      document.getElementById('modal-cover').src = p.cover;
-      document.getElementById('modal-client').textContent = p.client || 'Đang cập nhật';
-      document.getElementById('modal-area').textContent = p.area || '';
-      document.getElementById('modal-address').textContent = p.address || '';
-      document.getElementById('modal-body').innerHTML = marked.parse(p.body || '');
-      document.getElementById('article-modal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      try { history.replaceState(null, '', 'du-an.html?id=' + index); } catch (e) {}
-    }
+function openArticle(index) {
+        const p = allProjects[index];
+        if (!p) return;
+        window.location.href = p.url || `du-an/${p.slug}.html`;
+      }
 
     function closeArticle() {
       document.getElementById('article-modal').classList.remove('open');
