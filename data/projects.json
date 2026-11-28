@@ -1,48 +1,56 @@
 {
   "items": [
     {
-      "title": "Nhà Phố Hiện Đại 3 Tầng",
-      "category": "Nhà Phố",
-      "featured": true,
-      "client": "Anh Nam",
-      "area": "60m², 3 Tầng",
-      "address": "Hà Nội",
-      "date": "20/11/2026",
-      "cover": "images/Nha pho 2 tang dep.webp",
-      "body": "Công trình nhà phố 3 tầng diện tích 60m² tại Hà Nội do **Ocean Home** thiết kế và thi công trọn gói.\n\n### Giải pháp kiến trúc & công năng\n- Tối ưu lấy sáng tự nhiên và thông gió đối lưu cho nhà phố mặt tiền hẹp.\n- Vật liệu hoàn thiện bền đẹp, tiết kiệm chi phí đầu tư cho gia chủ."
-    },
-    {
-      "title": "Nhà Vườn Mái Thái 1 Tầng",
-      "category": "Biệt thự-Nhà Vườn",
-      "featured": true,
-      "client": "Anh Quân",
-      "area": "160m², 3 Phòng Ngủ",
-      "address": "Phú Thọ",
-      "date": "22/11/2026",
-      "cover": "images/Thiet ke nha mai thai 1 tang.webp",
-      "body": "Mẫu nhà vườn 1 tầng 160m² thoáng mát tại Phú Thọ với hệ sân vườn xanh bao quanh và bố trí 3 phòng ngủ tiện nghi."
-    },
-    {
+      "slug": "biet-thu-2-tang-mai-nhat",
+      "url": "du-an/biet-thu-2-tang-mai-nhat.html",
       "title": "Biệt Thự 2 Tầng Mái Nhật",
       "category": "Biệt thự-Nhà Vườn",
       "featured": true,
       "client": "Chú Minh",
       "area": "120m², 4 Phòng Ngủ",
       "address": "Ba Vì, Hà Nội",
-      "date": "24/11/2026",
+      "date": "2026-11-28",
       "cover": "images/Thiet ke nha 2 tang mai nhat.webp",
-      "body": "Biệt thự 2 tầng phong cách hiện đại kết hợp hệ mái Nhật sang trọng tại Ba Vì, đầy đủ công năng 4 phòng ngủ cho gia đình đa thế hệ."
+      "description": "Biệt Thự 2 Tầng Mái Nhật tại Ba Vì, Hà Nội (120m², 4 Phòng Ngủ) do Ocean Home thiết kế và thi công trọn gói."
     },
     {
+      "slug": "nha-mai-nhat-san-vuon",
+      "url": "du-an/nha-mai-nhat-san-vuon.html",
       "title": "Nhà Mái Nhật Sân Vườn",
       "category": "Biệt thự-Nhà Vườn",
       "featured": true,
       "client": "Chị Hương",
       "area": "160m², 4 Phòng Ngủ",
       "address": "Hưng Yên",
-      "date": "26/11/2026",
+      "date": "2026-11-28",
       "cover": "images/Nha mai nhat dep.webp",
-      "body": "Công trình nhà ở dân dụng 160m² tại Hưng Yên được Ocean Home thi công hoàn thiện đúng tiến độ, đảm bảo tiêu chuẩn Đẹp - Chuẩn - Tiết Kiệm."
+      "description": "Nhà Mái Nhật Sân Vườn tại Hưng Yên (160m², 4 Phòng Ngủ) do Ocean Home thiết kế và thi công trọn gói."
+    },
+    {
+      "slug": "nha-pho-hien-dai-3-tang",
+      "url": "du-an/nha-pho-hien-dai-3-tang.html",
+      "title": "Nhà Phố Hiện Đại 3 Tầng",
+      "category": "Nhà Phố",
+      "featured": true,
+      "client": "Anh Nam",
+      "area": "60m², 3 Tầng",
+      "address": "Hà Nội",
+      "date": "2026-11-28",
+      "cover": "images/Nha pho 2 tang dep.webp",
+      "description": "Nhà Phố Hiện Đại 3 Tầng tại Hà Nội (60m², 3 Tầng) do Ocean Home thiết kế và thi công trọn gói."
+    },
+    {
+      "slug": "nha-vuon-mai-thai-1-tang",
+      "url": "du-an/nha-vuon-mai-thai-1-tang.html",
+      "title": "Nhà Vườn Mái Thái 1 Tầng",
+      "category": "Biệt thự-Nhà Vườn",
+      "featured": true,
+      "client": "Anh Quân",
+      "area": "160m², 3 Phòng Ngủ",
+      "address": "Phú Thọ",
+      "date": "2026-11-28",
+      "cover": "images/Thiet ke nha mai thai 1 tang.webp",
+      "description": "Nhà Vườn Mái Thái 1 Tầng tại Phú Thọ (160m², 3 Phòng Ngủ) do Ocean Home thiết kế và thi công trọn gói."
     }
   ]
 }
