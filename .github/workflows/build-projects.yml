@@ -1,0 +1,39 @@
+name: Build Static Project Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/du-an/**'
+      - 'templates/**'
+      - 'scripts/**'
+      - 'data/projects.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install --no-save gray-matter marked
+
+      - name: Build static project HTML files
+        run: node scripts/build-projects.js
+
+      - name: Commit & Push generated pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/du-an/ du-an/ data/projects.json sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-build static project HTML pages" && git push)
