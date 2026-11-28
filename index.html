@@ -105,13 +105,11 @@
 
     /* ===== 1. HEADER ===== */
     .site-header {
-      background: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(10px);
+      background: #ffffff;
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0px;
       z-index: 1000;
-      transition: var(--transition);
     }
 
     .header-inner {
@@ -177,7 +175,7 @@
     /* ===== MOBILE / IPAD DRAWER MENU ===== */
     .mobile-drawer { position: fixed; inset: 0; z-index: 9800; visibility: hidden; opacity: 0; transition: 0.3s ease; }
     .mobile-drawer.open { visibility: visible; opacity: 1; }
-    .drawer-backdrop { position: absolute; inset: 0; background: rgba(16, 23, 34, 0.65); backdrop-filter: blur(3px); }
+    .drawer-backdrop { position: absolute; inset: 0; background: rgba(16, 23, 34, 0.65); }
     .drawer-panel {
       position: absolute; top: 0; right: 0; width: 310px; max-width: 85vw; height: 100%;
       background: var(--white); padding: 24px; display: flex; flex-direction: column;
@@ -193,34 +191,34 @@
     .drawer-nav a:hover { background: var(--accent-soft); color: var(--accent); }
     .drawer-footer { padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
 
-    /* ===== 2. HERO BANNER (HIỂN THỊ TRỌN VẸN TOÀN BỘ NGÔI NHÀ) ===== */
-.hero-section {
-  position: relative;
-  width: 100%;
-  background: var(--white);
-  overflow: hidden;
-}
+    /* ===== 2. HERO BANNER ===== */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      background: var(--white);
+      overflow: hidden;
+    }
 
-.hero-slides {
-  width: 100%;
-  position: relative;
-}
+    .hero-slides {
+      width: 100%;
+      position: relative;
+    }
 
-.hero-slide {
-  display: none;
-  width: 100%;
-}
+    .hero-slide {
+      display: none;
+      width: 100%;
+    }
 
-.hero-slide.active {
-  display: block;
-  animation: fadeBanner 0.8s ease;
-}
+    .hero-slide.active {
+      display: block;
+      animation: fadeBanner 0.8s ease;
+    }
 
-.hero-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    .hero-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
     @keyframes fadeBanner {
       from { opacity: 0.4; }
@@ -238,8 +236,7 @@
     .hero-dots {
       position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
       display: flex; gap: 10px; z-index: 3;
-      background: rgba(16, 23, 34, 0.45); padding: 8px 14px; border-radius: 999px;
-      backdrop-filter: blur(4px);
+      background: rgba(16, 23, 34, 0.55); padding: 8px 14px; border-radius: 999px;
     }
     .hero-dot { width: 28px; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.55); border: none; cursor: pointer; transition: var(--transition); }
     .hero-dot.active { width: 48px; background: var(--accent); }
@@ -286,7 +283,7 @@
     .about-media { position: relative; border-radius: var(--radius-lg); overflow: hidden; height: 380px; box-shadow: var(--shadow-md); }
     .about-media img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* ===== 4. LĨNH VỰC XÂY DỰNG (4 MỤC HIỂN THỊ TĨNH, KHÔNG BẤM LINK) ===== */
+    /* ===== 4. LĨNH VỰC XÂY DỰNG ===== */
     .sectors-section { padding: 20px 0 80px; background: var(--white); }
     .sectors-list {
       display: grid;
@@ -305,7 +302,6 @@
 
     .sector-thumb { width: 100%; height: 100%; }
     .sector-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .sector-item:hover .sector-thumb img { transform: scale(1.06); }
     .sector-item::after {
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(24, 35, 52, 0.05) 35%, rgba(16, 23, 34, 0.85) 100%);
@@ -318,11 +314,19 @@
     /* ===== 5. DỊCH VỤ CỦA OCEAN HOME ===== */
     .services-section { padding: 80px 0; background: var(--bg-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .service-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: var(--transition); }
-    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(200, 122, 62, 0.16);
+    }
     .service-img-wrap { height: 200px; position: relative; overflow: hidden; }
-    .service-img-wrap img { width: 100%; height: 100%; transition: transform 0.5s ease; }
-    .service-card:hover .service-img-wrap img { transform: scale(1.06); }
+    .service-img-wrap img { width: 100%; height: 100%; }
     .service-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
     .service-number { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 12px; display: inline-block; }
     .service-title { font-size: 18.5px; font-weight: 700; color: var(--primary); padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border); line-height: 1.35; }
@@ -334,15 +338,24 @@
     .project-card {
       display: flex; flex-direction: column;
       background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
-      overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;
+      overflow: hidden; box-shadow: var(--shadow-sm); cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(200, 122, 62, 0.16);
     }
-    .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent); }
     .project-img-wrap { height: 230px; position: relative; overflow: hidden; }
-    .project-img-wrap img { width: 100%; height: 100%; transition: transform 0.5s ease; }
-    .project-card:hover .project-img-wrap img { transform: scale(1.07); }
+    .project-img-wrap img { width: 100%; height: 100%; }
     .project-content { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
     .project-header-title { font-size: 18px; font-weight: 700; color: var(--primary); }
     .project-specs { font-size: 14px; color: var(--text-muted); line-height: 1.6; padding-top: 10px; border-top: 1px dashed var(--border); }
+
+    /* Chỉ áp dụng hiệu ứng nhấc thẻ cho thiết bị có chuột (máy tính), tránh kẹt chạm trên điện thoại */
+    @media (hover: hover) {
+      .sector-item:hover .sector-thumb img { transform: scale(1.06); }
+      .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+      .service-card:hover .service-img-wrap img { transform: scale(1.06); }
+      .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+      .project-card:hover .project-img-wrap img { transform: scale(1.07); }
+    }
 
     /* ===== 7. CTA & FOOTER ===== */
     .cta-banner { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 56px 0; color: var(--white); }
@@ -367,7 +380,7 @@
     .footer-bottom { padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13.5px; color: rgba(255, 255, 255, 0.55); flex-wrap: wrap; gap: 12px; }
 
     /* ===== MODAL ĐẶT LỊCH ===== */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(16, 23, 34, 0.75); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 9500; padding: 20px; }
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(16, 23, 34, 0.75); display: none; align-items: center; justify-content: center; z-index: 9500; padding: 20px; }
     .modal-backdrop.open { display: flex; }
     .modal-box { background: var(--white); color: var(--text-main); max-width: 480px; width: 100%; border-radius: var(--radius-lg); padding: 32px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); position: relative; max-height: 92vh; overflow-y: auto; }
     .modal-close { position: absolute; top: 16px; right: 18px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-light); font-size: 20px; cursor: pointer; color: var(--text-muted); display: flex; align-items: center; justify-content: center; }
@@ -419,7 +432,7 @@
   <header class="site-header" id="trang-chu">
     <div class="container header-inner">
       <a href="/" class="brand">
-        <div class="brand-logo"><img src="images/favicon.png" alt="Logo Ocean Home"></div>
+        <div class="brand-logo"><img src="/images/favicon.png" alt="Logo Ocean Home"></div>
         <div class="brand-text">
           <span class="brand-name">Ocean Home</span>
           <p>Đẹp - Chuẩn - Tiết Kiệm</p>
@@ -431,12 +444,12 @@
           <li><a href="/" class="active">Trang chủ</a></li>
           <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
           <li><a href="#dich-vu">Dịch vụ</a></li>
-          <li><a href="du-an.html">Dự án</a></li>
+          <li><a href="/du-an.html">Dự án</a></li>
           <li><a href="#lien-he">Liên hệ</a></li>
         </ul>
 
         <div class="header-actions">
-          <form class="search-box" onsubmit="event.preventDefault(); window.location.href='du-an.html?q=' + encodeURIComponent(this.q.value);">
+          <form class="search-box" onsubmit="event.preventDefault(); window.location.href='/du-an.html?q=' + encodeURIComponent(this.q.value);">
             <input type="text" name="q" placeholder="Tìm kiếm...">
             <button type="submit" title="Tìm kiếm">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
@@ -482,7 +495,7 @@
           <li><a href="/" onclick="closeMobileMenu()">Trang chủ</a></li>
           <li><a href="#ve-chung-toi" onclick="closeMobileMenu()">Về chúng tôi</a></li>
           <li><a href="#dich-vu" onclick="closeMobileMenu()">Dịch vụ</a></li>
-          <li><a href="du-an.html" onclick="closeMobileMenu()">Dự án</a></li>
+          <li><a href="/du-an.html" onclick="closeMobileMenu()">Dự án</a></li>
           <li><a href="#lien-he" onclick="closeMobileMenu()">Liên hệ</a></li>
         </ul>
       </div>
@@ -494,17 +507,17 @@
     </div>
   </div>
 
-  <!-- 2. HERO BANNER (HIỂN THỊ TRỌN VẸN TOÀN BỘ NGÔI NHÀ) -->
+  <!-- 2. HERO BANNER -->
   <section class="hero-section" id="hero-banner-section">
     <div class="hero-slides">
       <div class="hero-slide active">
-        <img src="images/Thiet ke nha hai tang mai nhat.webp" alt="Thiết kế biệt thự 2 tầng mái Nhật hiện đại Ocean Home">
+        <img src="/images/Thiet ke nha hai tang mai nhat.webp" alt="Thiết kế biệt thự 2 tầng mái Nhật hiện đại Ocean Home">
       </div>
       <div class="hero-slide">
-        <img src="images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Thiết kế kiến trúc nhà phố sang trọng tại Hà Nội">
+        <img src="/images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Thiết kế kiến trúc nhà phố sang trọng tại Hà Nội">
       </div>
       <div class="hero-slide">
-        <img src="images/Thiet ke nha mai thai 1 tang.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà vườn hiện đại trọn gói">
+        <img src="/images/Thiet ke nha mai thai 1 tang.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà vườn hiện đại trọn gói">
       </div>
     </div>
 
@@ -541,12 +554,12 @@
       </div>
 
       <div class="about-media">
-        <img src="images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Đội ngũ kiến trúc sư kỹ sư tổng thầu Ocean Home">
+        <img src="/images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Đội ngũ kiến trúc sư kỹ sư tổng thầu Ocean Home">
       </div>
     </div>
   </section>
 
-  <!-- 4. LĨNH VỰC XÂY DỰNG (4 LĨNH VỰC HIỂN THỊ TĨNH, KHÔNG BẤM LINK) -->
+  <!-- 4. LĨNH VỰC XÂY DỰNG -->
   <section class="sectors-section">
     <div class="container">
       <div class="section-header">
@@ -559,28 +572,28 @@
       <div class="sectors-list">
         <div class="sector-item">
           <div class="sector-thumb">
-            <img src="images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà phố hiện đại">
+            <img src="/images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Thiết kế thi công nhà phố hiện đại">
           </div>
           <div class="sector-name">Nhà Phố</div>
         </div>
 
         <div class="sector-item">
           <div class="sector-thumb">
-            <img src="images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Thiết kế thi công biệt thự trọn gói">
+            <img src="/images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Thiết kế thi công biệt thự trọn gói">
           </div>
           <div class="sector-name">Biệt thự-Nhà vườn</div>
         </div>
 
         <div class="sector-item">
           <div class="sector-thumb">
-            <img src="images/Thiet ke nha pho.webp" loading="lazy" decoding="async" alt="Thiết kế thi công tòa nhà văn phòng">
+            <img src="/images/Thiet ke nha pho.webp" loading="lazy" decoding="async" alt="Thiết kế thi công tòa nhà văn phòng">
           </div>
           <div class="sector-name">Văn Phòng</div>
         </div>
 
         <div class="sector-item">
           <div class="sector-thumb">
-            <img src="images/Thiet ke nha 1 tang hien dai.webp" loading="lazy" decoding="async" alt="Thiết kế thi công khách sạn nghỉ dưỡng">
+            <img src="/images/Thiet ke nha 1 tang hien dai.webp" loading="lazy" decoding="async" alt="Thiết kế thi công khách sạn nghỉ dưỡng">
           </div>
           <div class="sector-name">Khách Sạn</div>
         </div>
@@ -599,9 +612,9 @@
       </div>
 
       <div class="services-grid">
-        <a href="thiet-ke-nha-dep-phu-tho.html" class="service-card" style="cursor: pointer;">
+        <a href="/thiet-ke-nha-dep-phu-tho.html" class="service-card">
           <div class="service-img-wrap">
-            <img src="images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Thiết kế nhà đẹp khu vực Phú Thọ">
+            <img src="/images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Thiết kế nhà đẹp khu vực Phú Thọ">
           </div>
           <div class="service-body">
             <span class="service-number">01</span>
@@ -611,9 +624,9 @@
           </div>
         </a>
 
-       <a href="xay-nha-tron-goi-phu-tho.html" class="service-card" style="cursor: pointer;">
+        <a href="/xay-nha-tron-goi-phu-tho.html" class="service-card">
           <div class="service-img-wrap">
-            <img src="images/Nha mai nhat dep.webp" loading="lazy" decoding="async" alt="Xây nhà trọn gói ở Phú Thọ">
+            <img src="/images/Nha mai nhat dep.webp" loading="lazy" decoding="async" alt="Xây nhà trọn gói ở Phú Thọ">
           </div>
           <div class="service-body">
             <span class="service-number">02</span>
@@ -625,7 +638,7 @@
 
         <article class="service-card">
           <div class="service-img-wrap">
-            <img src="images/Thiet ke nha vuon 1 tang.webp" loading="lazy" decoding="async" alt="Cung cấp vật tư xây dựng hoàn thiện chính hãng">
+            <img src="/images/Thiet ke nha vuon 1 tang.webp" loading="lazy" decoding="async" alt="Cung cấp vật tư xây dựng hoàn thiện chính hãng">
           </div>
           <div class="service-body">
             <span class="service-number">03</span>
@@ -636,7 +649,7 @@
 
         <article class="service-card">
           <div class="service-img-wrap">
-            <img src="images/Nha mai thai.webp" loading="lazy" decoding="async" alt="Tư vấn thủ tục xin cấp phép và hoàn công xây dựng">
+            <img src="/images/Nha mai thai.webp" loading="lazy" decoding="async" alt="Tư vấn thủ tục xin cấp phép và hoàn công xây dựng">
           </div>
           <div class="service-body">
             <span class="service-number">04</span>
@@ -648,7 +661,7 @@
     </div>
   </section>
 
-  <!-- 6. DỰ ÁN NỔI BẬT (KÍCH VÀO MỞ THẲNG CHI TIẾT TỪNG BÀI) -->
+  <!-- 6. DỰ ÁN NỔI BẬT -->
   <section class="projects-section" id="du-an">
     <div class="container">
       <div class="section-header">
@@ -656,13 +669,13 @@
           <span class="section-eyebrow">Công trình thực tế</span>
           <h2 class="section-title">Dự Án Nổi Bật</h2>
         </div>
-        <a href="du-an.html" class="btn-outline-arrow">Xem tất cả dự án →</a>
+        <a href="/du-an.html" class="btn-outline-arrow">Xem tất cả dự án →</a>
       </div>
 
       <div class="projects-grid" id="home-projects-grid">
-        <a href="du-an.html?id=0" class="project-card">
+        <a href="/du-an.html" class="project-card">
           <div class="project-img-wrap">
-            <img src="images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Nhà Phố Hiện Đại 3 Tầng">
+            <img src="/images/Nha pho 2 tang dep.webp" loading="lazy" decoding="async" alt="Nhà Phố Hiện Đại 3 Tầng">
           </div>
           <div class="project-content">
             <h3 class="project-header-title">Nhà Phố Hiện Đại 3 Tầng</h3>
@@ -673,9 +686,9 @@
           </div>
         </a>
 
-        <a href="du-an.html?id=1" class="project-card">
+        <a href="/du-an.html" class="project-card">
           <div class="project-img-wrap">
-            <img src="images/Thiet ke nha mai thai 1 tang.webp" loading="lazy" decoding="async" alt="Nhà Vườn Mái Thái 1 Tầng">
+            <img src="/images/Thiet ke nha mai thai 1 tang.webp" loading="lazy" decoding="async" alt="Nhà Vườn Mái Thái 1 Tầng">
           </div>
           <div class="project-content">
             <h3 class="project-header-title">Nhà Vườn Mái Thái 1 Tầng</h3>
@@ -686,9 +699,9 @@
           </div>
         </a>
 
-        <a href="du-an.html?id=2" class="project-card">
+        <a href="/du-an.html" class="project-card">
           <div class="project-img-wrap">
-            <img src="images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Biệt Thự 2 Tầng Mái Nhật">
+            <img src="/images/Thiet ke nha 2 tang mai nhat.webp" loading="lazy" decoding="async" alt="Biệt Thự 2 Tầng Mái Nhật">
           </div>
           <div class="project-content">
             <h3 class="project-header-title">Biệt Thự 2 Tầng Mái Nhật</h3>
@@ -699,9 +712,9 @@
           </div>
         </a>
 
-        <a href="du-an.html?id=3" class="project-card">
+        <a href="/du-an.html" class="project-card">
           <div class="project-img-wrap">
-            <img src="images/Nha mai nhat dep.webp" loading="lazy" decoding="async" alt="Nhà Mái Nhật Sân Vườn">
+            <img src="/images/Nha mai nhat dep.webp" loading="lazy" decoding="async" alt="Nhà Mái Nhật Sân Vườn">
           </div>
           <div class="project-content">
             <h3 class="project-header-title">Nhà Mái Nhật Sân Vườn</h3>
@@ -801,14 +814,12 @@
   </div>
 
   <script>
-    // Xóa /index.html khỏi thanh địa chỉ để URL luôn gọn đẹp
     if (window.location.pathname.endsWith('/index.html')) {
       try {
         history.replaceState(null, '', '/' + window.location.hash);
       } catch (e) {}
     }
 
-    // Hero Slider tự động chuyển ảnh
     let currentSlide = 0;
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.hero-dot');
@@ -824,7 +835,6 @@
       showSlide(next);
     }, 5000);
 
-    // Mobile / iPad Menu Drawer
     function openMobileMenu() {
       document.getElementById('mobile-drawer').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -834,7 +844,6 @@
       document.body.style.overflow = '';
     }
 
-    // Modal Đặt lịch
     function openBookingModal() {
       document.getElementById('booking-modal').classList.add('open');
     }
@@ -842,10 +851,9 @@
       document.getElementById('booking-modal').classList.remove('open');
     }
 
-    // Tự động cập nhật mục Dự Án Nổi Bật từ data/projects.json và gắn link mở thẳng chi tiết từng bài
     (async function syncFeaturedProjects() {
       try {
-        const res = await fetch('data/projects.json?v=' + Date.now());
+        const res = await fetch('/data/projects.json?v=' + Date.now());
         if (!res.ok) return;
         const data = await res.json();
         const items = data.items || [];
@@ -856,10 +864,12 @@
         const grid = document.getElementById('home-projects-grid');
         if (grid) {
           grid.innerHTML = listToRender.map(p => {
+            const targetUrl = p.url ? '/' + p.url.replace(/^\/+/, '') : '/du-an/' + p.slug + '.html';
+            const coverSrc = p.cover ? '/' + p.cover.replace(/^\/+/, '') : '';
             return `
-<a href="${p.url || 'du-an/' + p.slug + '.html'}" class="project-card">
+              <a href="${targetUrl}" class="project-card">
                 <div class="project-img-wrap">
-                  <img src="${p.cover}" loading="lazy" decoding="async" alt="${p.title}">
+                  <img src="${coverSrc}" loading="lazy" decoding="async" alt="${p.title}">
                 </div>
                 <div class="project-content">
                   <h3 class="project-header-title">${p.title}</h3>
