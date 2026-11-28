@@ -348,7 +348,6 @@
     .project-header-title { font-size: 18px; font-weight: 700; color: var(--primary); }
     .project-specs { font-size: 14px; color: var(--text-muted); line-height: 1.6; padding-top: 10px; border-top: 1px dashed var(--border); }
 
-    /* Chỉ áp dụng hiệu ứng nhấc thẻ cho thiết bị có chuột (máy tính), tránh kẹt chạm trên điện thoại */
     @media (hover: hover) {
       .sector-item:hover .sector-thumb img { transform: scale(1.06); }
       .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent); }
@@ -786,7 +785,7 @@
       <button type="button" class="modal-close" onclick="closeBookingModal()">×</button>
       <h3>Đặt Lịch Tư Vấn Trực Tiếp</h3>
       <p>Để lại thông tin, Kiến trúc sư &amp; Kỹ sư Ocean Home sẽ liên hệ hỗ trợ bạn ngay.</p>
-      <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Ocean Home đã nhận thông tin đặt lịch.'); closeBookingModal();">
+      <form id="booking-form">
         <div class="form-group">
           <label for="booking-name">Họ và tên *</label>
           <input type="text" id="booking-name" name="full_name" autocomplete="name" required placeholder="Nhập họ tên của bạn...">
@@ -798,17 +797,17 @@
         <div class="form-group">
           <label for="booking-service">Hạng mục quan tâm</label>
           <select id="booking-service" name="service">
-            <option value="tron-goi">Thiết kế &amp; Thi công trọn gói Nhà ở / Biệt thự</option>
-            <option value="thiet-ke">Thiết kế kiến trúc - nội thất</option>
-            <option value="van-phong-khach-san">Thi công Văn phòng / Khách sạn</option>
-            <option value="vat-tu-phap-ly">Cung cấp vật tư &amp; Tư vấn pháp lý xây dựng</option>
+            <option value="Thiết kế & Thi công trọn gói">Thiết kế &amp; Thi công trọn gói Nhà ở / Biệt thự</option>
+            <option value="Thiết kế kiến trúc - nội thất">Thiết kế kiến trúc - nội thất</option>
+            <option value="Thi công Văn phòng / Khách sạn">Thi công Văn phòng / Khách sạn</option>
+            <option value="Cung cấp vật tư & Pháp lý">Cung cấp vật tư &amp; Tư vấn pháp lý xây dựng</option>
           </select>
         </div>
         <div class="form-group">
           <label for="booking-note">Ghi chú diện tích / Khu vực xây dựng</label>
           <textarea id="booking-note" name="note" rows="3" placeholder="Ví dụ: Đất 100m2 tại Hà Nội, dự kiến xây 4 tầng..."></textarea>
         </div>
-        <button type="submit" class="btn-primary-arte" style="width:100%;">Gửi Yêu Cầu Đặt Lịch</button>
+        <button type="submit" id="booking-submit-btn" class="btn-primary-arte" style="width:100%;">Gửi Yêu Cầu Đặt Lịch</button>
       </form>
     </div>
   </div>
@@ -850,6 +849,31 @@
     function closeBookingModal() {
       document.getElementById('booking-modal').classList.remove('open');
     }
+
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('booking-submit-btn');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Đang gửi thông tin...';
+
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwvjzRp2MgcfPmXVluJJrMpk35M041OkxsSC-JjrdXO4B58ypcXCVjojsMAeh98B9r8gQ/exec';
+      const formData = new FormData(this);
+
+      fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+        .then(() => {
+          alert('Cảm ơn bạn! Ocean Home đã nhận thông tin và sẽ liên hệ tư vấn ngay.');
+          this.reset();
+          closeBookingModal();
+        })
+        .catch(() => {
+          alert('Có lỗi kết nối, bạn vui lòng gọi trực tiếp Hotline/Zalo: 0903 489 238.');
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        });
+    });
 
     (async function syncFeaturedProjects() {
       try {
