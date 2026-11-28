@@ -854,9 +854,8 @@
         const grid = document.getElementById('home-projects-grid');
         if (grid) {
           grid.innerHTML = listToRender.map(p => {
-            const realIndex = items.indexOf(p);
             return `
-              <a href="du-an.html?id=${realIndex}" class="project-card">
+<a href="${p.url || 'du-an/' + p.slug + '.html'}" class="project-card">
                 <div class="project-img-wrap">
                   <img src="${p.cover}" loading="lazy" decoding="async" alt="${p.title}">
                 </div>
