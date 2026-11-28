@@ -21,6 +21,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Schema BreadcrumbList chuẩn SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": "https://oceanhome.vn/" },
+      { "@type": "ListItem", "position": 2, "name": "Dự án", "item": "https://oceanhome.vn/du-an.html" },
+      { "@type": "ListItem", "position": 3, "name": "Nhà Mái Nhật Sân Vườn", "item": "https://oceanhome.vn/du-an/nha-mai-nhat-san-vuon.html" }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --primary: #182334;
@@ -68,54 +81,125 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 82px;
+      height: 80px;
+      gap: 12px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-logo { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
     .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
-    .brand-name { display: block; font-size: 21px; font-weight: 800; color: var(--primary); text-transform: uppercase; }
-    .brand-text p { font-size: 11.5px; font-weight: 600; color: var(--accent); }
+    .brand-text { display: flex; flex-direction: column; justify-content: center; }
+    .brand-name {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .brand-text p {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.2;
+      white-space: nowrap;
+    }
     .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
-    .nav-links a { font-size: 14.5px; font-weight: 600; color: var(--primary); }
+    .nav-links a { font-size: 14.5px; font-weight: 600; color: var(--primary); white-space: nowrap; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
     .header-hotline {
       background: var(--accent);
       color: var(--white);
       font-weight: 700;
       font-size: 13.5px;
-      padding: 10px 18px;
+      padding: 9px 16px;
       border-radius: 999px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
+    .mobile-menu-btn {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-light);
+      color: var(--primary);
+      font-size: 20px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* MOBILE DRAWER */
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      background: rgba(16, 23, 34, 0.65);
+      z-index: 2000;
+      display: none;
+      justify-content: flex-end;
+    }
+    .mobile-drawer.open { display: flex; }
+    .drawer-panel {
+      width: 280px;
+      max-width: 82vw;
+      background: var(--white);
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .drawer-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
+    .drawer-close { border: 1px solid var(--border); background: var(--bg-light); width: 34px; height: 34px; border-radius: 8px; font-size: 20px; cursor: pointer; }
+    .drawer-nav { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .drawer-nav a { display: block; padding: 10px 12px; font-weight: 600; color: var(--primary); border-radius: 8px; }
+    .drawer-nav a.active { background: var(--accent-soft); color: var(--accent); }
 
     /* BREADCRUMB & ARTICLE */
     .breadcrumb-bar {
       background: var(--bg-light);
       border-bottom: 1px solid var(--border);
-      padding: 14px 0;
-      font-size: 13.5px;
+      padding: 12px 0;
+      font-size: 13px;
       color: var(--text-muted);
     }
     .breadcrumb-bar a:hover { color: var(--accent); }
-    .breadcrumb-bar span { margin: 0 8px; }
+    .breadcrumb-bar span { margin: 0 6px; }
 
-    .project-detail-section { padding: 48px 0 72px; }
+    .project-detail-section { padding: 36px 0 72px; }
     .project-badge {
       display: inline-block;
       background: var(--accent-soft);
       color: var(--accent);
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 12px;
       text-transform: uppercase;
       padding: 5px 14px;
       border-radius: 999px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .project-title {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 800;
       color: var(--primary);
-      line-height: 1.28;
-      margin-bottom: 24px;
+      line-height: 1.3;
+      margin-bottom: 22px;
     }
 
     .project-specs-box {
@@ -125,18 +209,18 @@
       background: var(--bg-light);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 20px 24px;
-      margin-bottom: 32px;
+      padding: 20px;
+      margin-bottom: 28px;
     }
     .spec-item strong {
       display: block;
-      font-size: 12px;
+      font-size: 11.5px;
       text-transform: uppercase;
       color: var(--text-muted);
       margin-bottom: 4px;
     }
     .spec-item span {
-      font-size: 15.5px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--primary);
     }
@@ -147,48 +231,49 @@
       object-fit: cover;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
     .project-body {
-      font-size: 16.5px;
+      font-size: 16px;
       color: var(--text-main);
       max-width: 860px;
     }
     .project-body h2, .project-body h3 {
       color: var(--primary);
-      margin: 28px 0 12px;
+      margin: 26px 0 12px;
     }
     .project-body p { margin-bottom: 16px; }
     .project-body ul { margin: 12px 0 20px 22px; }
     .project-body li { margin-bottom: 8px; }
     .project-body img {
       border-radius: 10px;
-      margin: 24px 0;
+      margin: 22px 0;
       box-shadow: var(--shadow-sm);
     }
 
     .project-cta-card {
-      margin-top: 48px;
+      margin-top: 44px;
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       color: var(--white);
-      padding: 36px;
+      padding: 32px;
       border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
       flex-wrap: wrap;
     }
-    .project-cta-card h3 { font-size: 22px; margin-bottom: 6px; }
+    .project-cta-card h3 { font-size: 21px; margin-bottom: 6px; }
     .project-cta-card p { color: rgba(255, 255, 255, 0.85); font-size: 14.5px; }
     .btn-cta {
       background: var(--accent);
       color: var(--white);
       font-weight: 700;
-      padding: 14px 26px;
+      padding: 13px 24px;
       border-radius: 8px;
       display: inline-block;
+      white-space: nowrap;
     }
     .btn-cta:hover { background: var(--accent-hover); }
 
@@ -196,7 +281,7 @@
     .site-footer {
       background: var(--primary-dark);
       color: rgba(255, 255, 255, 0.8);
-      padding: 44px 0 28px;
+      padding: 40px 0 28px;
       font-size: 14px;
     }
     .footer-inner {
@@ -204,13 +289,25 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
     }
 
     @media (max-width: 767px) {
-      .nav-links { display: none; }
-      .project-title { font-size: 24px; }
-      .project-specs-box { grid-template-columns: repeat(2, 1fr); }
+      .container { padding: 0 16px; }
+      .header-inner { height: 68px; padding: 0 14px; gap: 8px; }
+      .brand { gap: 8px; }
+      .brand-logo { width: 38px; height: 38px; }
+      .brand-name { font-size: 16px; }
+      .brand-text p { font-size: 10px; }
+      .header-hotline { font-size: 12px; padding: 8px 11px; }
+      .project-title { font-size: 23px; }
+      .project-specs-box { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 16px; }
+      .project-cta-card { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -218,7 +315,7 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a href="../index.html" class="brand">
+      <a href="/" class="brand">
         <div class="brand-logo"><img src="../images/logo.webp" alt="Logo Ocean Home"></div>
         <div class="brand-text">
           <span class="brand-name">Ocean Home</span>
@@ -226,19 +323,41 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="../index.html">Trang chủ</a></li>
-        <li><a href="../index.html#ve-chung-toi">Về chúng tôi</a></li>
-        <li><a href="../index.html#dich-vu">Dịch vụ</a></li>
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="/#ve-chung-toi">Về chúng tôi</a></li>
+        <li><a href="/#dich-vu">Dịch vụ</a></li>
         <li><a href="../du-an.html" class="active">Dự án</a></li>
-        <li><a href="../index.html#lien-he">Liên hệ</a></li>
+        <li><a href="/#lien-he">Liên hệ</a></li>
       </ul>
-      <a href="tel:0903489238" class="header-hotline">📞 0903 489 238</a>
+      <div class="header-actions">
+        <a href="tel:0903489238" class="header-hotline">📞 0903 489 238</a>
+        <button type="button" class="mobile-menu-btn" onclick="document.getElementById('mobile-drawer').classList.add('open')" aria-label="Menu">☰</button>
+      </div>
     </div>
   </header>
 
+  <div class="mobile-drawer" id="mobile-drawer" onclick="if(event.target===this) this.classList.remove('open')">
+    <div class="drawer-panel">
+      <div>
+        <div class="drawer-top">
+          <strong style="color:var(--primary); font-size:17px;">OCEAN HOME</strong>
+          <button type="button" class="drawer-close" onclick="document.getElementById('mobile-drawer').classList.remove('open')">×</button>
+        </div>
+        <ul class="drawer-nav">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/#ve-chung-toi">Về chúng tôi</a></li>
+          <li><a href="/#dich-vu">Dịch vụ</a></li>
+          <li><a href="../du-an.html" class="active">Dự án</a></li>
+          <li><a href="/#lien-he">Liên hệ</a></li>
+        </ul>
+      </div>
+      <a href="https://zalo.me/0903489238" target="_blank" rel="noopener" class="btn-cta" style="text-align:center;">Chat Zalo: 0903 489 238</a>
+    </div>
+  </div>
+
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="../index.html">Trang chủ</a>
+      <a href="/">Trang chủ</a>
       <span>/</span>
       <a href="../du-an.html">Dự án</a>
       <span>/</span>
