@@ -8,32 +8,26 @@ media_folder: "images/du-an"
 public_folder: "images/du-an"
 
 collections:
-  - name: "du_an_list"
+  - name: "du_an"
     label: "Quản lý Dự án"
-    files:
-      - name: "projects"
-        label: "Danh sách toàn bộ Dự án"
-        file: "data/projects.json"
-        fields:
-          - name: "items"
-            label: "Các công trình dự án"
-            widget: "list"
-            summary: "{{fields.title}} ({{fields.category}}) - {{fields.address}}"
-            fields:
-              - { label: "Tiêu đề dự án", name: "title", widget: "string", hint: "Ví dụ: Thiết kế & Thi công Biệt thự 2 tầng mái Nhật" }
-              - label: "Loại công trình (Tự động cập nhật vào Lĩnh vực xây dựng)"
-                name: "category"
-                widget: "select"
-                - label: "Loại công trình"
-                name: "category"
-                widget: "select"
-                options: ["Nhà Phố", "Biệt Thự", "Văn Phòng", "Khách Sạn"]
-                default: "Nhà Phố"
-                default: "Nhà Phố"
-              - { label: "Đưa ra Dự án nổi bật (Trang chủ)", name: "featured", widget: "boolean", default: true }
-              - { label: "Chủ đầu tư", name: "client", widget: "string", required: false, hint: "Ví dụ: Anh Nam" }
-              - { label: "Diện tích & Quy mô", name: "area", widget: "string", hint: "Ví dụ: 120m², 3 Tầng - 4 Phòng ngủ" }
-              - { label: "Địa chỉ công trình", name: "address", widget: "string", hint: "Ví dụ: Hà Đông, Hà Nội" }
-              - { label: "Ngày đăng", name: "date", widget: "datetime", format: "DD/MM/YYYY", date_format: "DD/MM/YYYY", time_format: false }
-              - { label: "Ảnh bìa dự án", name: "cover", widget: "image" }
-              - { label: "Nội dung chi tiết công trình (Có thể chèn nhiều ảnh mô tả)", name: "body", widget: "markdown" }
+    folder: "content/du-an"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} ({{category}}) - {{address}}"
+    fields:
+      - { label: "Tiêu đề dự án", name: "title", widget: "string", hint: "Ví dụ: Thiết kế & Thi công Biệt thự 2 tầng mái Nhật" }
+      - label: "Loại công trình"
+        name: "category"
+        widget: "select"
+        options: ["Nhà Phố", "Biệt Thự", "Văn Phòng", "Khách Sạn"]
+        default: "Nhà Phố"
+      - { label: "Đưa ra Dự án nổi bật (Trang chủ)", name: "featured", widget: "boolean", default: true }
+      - { label: "Chủ đầu tư", name: "client", widget: "string", required: false, hint: "Ví dụ: Anh Nam" }
+      - { label: "Diện tích & Quy mô", name: "area", widget: "string", hint: "Ví dụ: 120m², 3 Tầng - 4 Phòng ngủ" }
+      - { label: "Địa chỉ công trình", name: "address", widget: "string", hint: "Ví dụ: Hà Đông, Hà Nội" }
+      - { label: "Ngày đăng", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Ảnh bìa dự án", name: "cover", widget: "image" }
+      - { label: "Mô tả ngắn SEO (Meta Description)", name: "description", widget: "text", required: false, hint: "Tóm tắt 1-2 câu hiển thị trên Google" }
+      - { label: "Nội dung chi tiết công trình", name: "body", widget: "markdown" }
