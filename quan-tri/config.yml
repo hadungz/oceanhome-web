@@ -2,7 +2,7 @@ backend:
   name: github
   repo: hadungz/oceanhome-web
   branch: main
-  base_url: https://oceanhome-cms-auth.hadungz.workers.dev
+  base_url: https://oceanhome-cms-auth.hadung-oceanhome.workers.dev
 
 media_folder: "images/du-an"
 public_folder: "images/du-an"
