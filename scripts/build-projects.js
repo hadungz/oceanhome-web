@@ -153,6 +153,18 @@ const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://oceanhome.vn/thiet-ke-nha-dep-phu-tho.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://oceanhome.vn/xay-nha-tron-goi-phu-tho.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 ${projectUrlsXml}
 </urlset>
 `;
