@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dự Án Tiêu Biểu | Ocean Home - Tổng Thầu Thiết Kế &amp; Thi Công Trọn Gói</title>
-  <meta name="description" content="Tổng hợp các công trình thiết kế kiến trúc và thi công xây dựng trọn gói nhà phố, biệt thự, văn phòng, khách sạn, công nghiệp thực tế của Ocean Home.">
+  <meta name="description" content="Tổng hợp các công trình thiết kế kiến trúc và thi công xây dựng trọn gói nhà phố, biệt thự, văn phòng, khách sạn thực tế của Ocean Home.">
   <link rel="canonical" href="https://oceanhome.vn/du-an.html">
   <link rel="icon" type="image/png" sizes="96x96" href="https://oceanhome.vn/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,8 @@
       --primary: #182334;
       --primary-dark: #101722;
       --accent: #c87a3e;
+      --accent-hover: #b0652c;
+      --accent-soft: rgba(200, 122, 62, 0.12);
       --text-main: #1e242b;
       --text-muted: #5c6672;
       --bg-light: #f7f8fa;
@@ -31,28 +33,60 @@
     a { text-decoration: none; color: inherit; }
     .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
 
+    /* Header đồng bộ & chuẩn trên mọi màn hình */
     .site-header { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 82px; gap: 20px; }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-logo { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 82px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-logo { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
     .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
-    .brand-name { display: block; font-size: 21px; font-weight: 800; color: var(--primary); text-transform: uppercase; }
-    .brand p { font-size: 11.5px; font-weight: 600; color: var(--accent); }
+    .brand-name { display: block; font-size: 21px; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1.15; white-space: nowrap; }
+    .brand p { font-size: 11.5px; font-weight: 600; color: var(--accent); white-space: nowrap; }
     .nav-links { display: flex; list-style: none; gap: 28px; }
-    .nav-links a { font-size: 14.5px; font-weight: 600; color: var(--primary); padding: 8px 0; position: relative; }
+    .nav-links a { font-size: 14.5px; font-weight: 600; color: var(--primary); padding: 8px 0; position: relative; white-space: nowrap; }
     .nav-links a.active, .nav-links a:hover { color: var(--accent); }
     .nav-links a.active::after { content: ''; position: absolute; left: 0; bottom: 2px; width: 100%; height: 2px; background: var(--accent); }
-    .header-hotline { background: var(--accent); color: #fff; font-weight: 700; font-size: 13.5px; padding: 10px 18px; border-radius: 999px; }
 
-    .page-hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 64px 0; text-align: center; }
+    .header-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .header-hotline {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent); color: #fff; font-weight: 700; font-size: 13.5px;
+      padding: 10px 18px; border-radius: 999px; white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(200, 122, 62, 0.3);
+    }
+    .mobile-menu-btn {
+      display: none; background: var(--bg-light); border: 1px solid var(--border);
+      color: var(--primary); width: 42px; height: 42px; border-radius: 8px;
+      align-items: center; justify-content: center; cursor: pointer;
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer { position: fixed; inset: 0; z-index: 9800; visibility: hidden; opacity: 0; transition: 0.3s ease; }
+    .mobile-drawer.open { visibility: visible; opacity: 1; }
+    .drawer-backdrop { position: absolute; inset: 0; background: rgba(16, 23, 34, 0.65); backdrop-filter: blur(3px); }
+    .drawer-panel {
+      position: absolute; top: 0; right: 0; width: 300px; max-width: 85vw; height: 100%;
+      background: #fff; padding: 24px; display: flex; flex-direction: column;
+      justify-content: space-between; transform: translateX(100%); transition: transform 0.3s ease;
+    }
+    .mobile-drawer.open .drawer-panel { transform: translateX(0); }
+    .drawer-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .drawer-close { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-light); font-size: 20px; cursor: pointer; }
+    .drawer-nav { list-style: none; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; }
+    .drawer-nav a { display: block; padding: 12px 14px; font-weight: 600; font-size: 15.5px; color: var(--primary); border-radius: 8px; }
+    .drawer-nav a:hover { background: var(--accent-soft); color: var(--accent); }
+
+    /* Banner tiêu đề trang Dự án */
+    .page-hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 56px 0; text-align: center; }
     .page-hero span { color: #f4b786; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
-    .page-hero h1 { font-size: 36px; font-weight: 800; margin: 10px 0 14px; }
-    .page-hero p { color: rgba(255,255,255,0.82); max-width: 640px; margin: 0 auto; }
+    .page-hero h1 { font-size: 34px; font-weight: 800; margin: 10px 0 14px; line-height: 1.25; }
+    .page-hero p { color: rgba(255,255,255,0.82); max-width: 640px; margin: 0 auto; font-size: 15px; }
 
-    .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 36px 0 32px; }
-    .filter-btn { padding: 9px 20px; border-radius: 999px; border: 1px solid var(--border); background: #fff; font-weight: 600; font-size: 14px; color: var(--primary); cursor: pointer; transition: 0.25s; }
+    /* Bộ lọc danh mục */
+    .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 32px 0 28px; }
+    .filter-btn { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--border); background: #fff; font-weight: 600; font-size: 14px; color: var(--primary); cursor: pointer; transition: 0.25s; }
     .filter-btn.active, .filter-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+    /* Lưới dự án */
     .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding-bottom: 72px; }
     .project-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; }
     .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent); }
@@ -65,9 +99,10 @@
     .project-meta { font-size: 14px; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 4px; }
     .read-more { margin-top: 14px; font-size: 13.5px; font-weight: 700; color: var(--accent); }
 
-    .article-modal { position: fixed; inset: 0; background: rgba(16,23,34,0.78); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 9900; padding: 20px; }
+    /* Modal đọc chi tiết dự án */
+    .article-modal { position: fixed; inset: 0; background: rgba(16,23,34,0.78); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 9900; padding: 16px; }
     .article-modal.open { display: flex; }
-    .article-box { background: #fff; max-width: 860px; width: 100%; max-height: 90vh; overflow-y: auto; border-radius: var(--radius-lg); position: relative; padding: 36px; }
+    .article-box { background: #fff; max-width: 860px; width: 100%; max-height: 90vh; overflow-y: auto; border-radius: var(--radius-lg); position: relative; padding: 32px; }
     .article-close { position: sticky; top: 0; float: right; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: #fff; font-size: 22px; cursor: pointer; z-index: 10; }
     .article-cover { width: 100%; max-height: 420px; object-fit: cover; border-radius: 10px; margin: 16px 0 22px; }
     .article-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; background: var(--bg-light); padding: 16px 20px; border-radius: 10px; margin-bottom: 24px; font-size: 14px; }
@@ -79,37 +114,88 @@
 
     .site-footer { background: var(--primary-dark); color: rgba(255,255,255,0.78); padding: 40px 0; text-align: center; font-size: 14px; }
 
-    @media (max-width: 960px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } .nav-links { display: none; } }
-    @media (max-width: 640px) { .projects-grid, .article-specs { grid-template-columns: 1fr; } .article-box { padding: 22px; } }
+    @media (max-width: 960px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 16px; }
+      .header-inner { height: 70px; gap: 8px; }
+      .brand { gap: 8px; }
+      .brand-logo { width: 38px; height: 38px; }
+      .brand-name { font-size: 16.5px; }
+      .brand p { font-size: 10.5px; }
+      .header-hotline { padding: 9px 12px; font-size: 12.5px; }
+      .page-hero { padding: 42px 0; }
+      .page-hero h1 { font-size: 25px; }
+      .projects-grid, .article-specs { grid-template-columns: 1fr; }
+      .article-box { padding: 20px; }
+    }
   </style>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <div class="brand-logo"><img src="images/favicon.png" alt="Logo Ocean Home"></div>
         <div>
           <span class="brand-name">Ocean Home</span>
           <p>Đẹp - Chuẩn - Tiết Kiệm</p>
         </div>
       </a>
+
       <ul class="nav-links">
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="index.html#ve-chung-toi">Về chúng tôi</a></li>
-        <li><a href="index.html#dich-vu">Dịch vụ</a></li>
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="/#ve-chung-toi">Về chúng tôi</a></li>
+        <li><a href="/#dich-vu">Dịch vụ</a></li>
         <li><a href="du-an.html" class="active">Dự án</a></li>
-        <li><a href="index.html#lien-he">Liên hệ</a></li>
+        <li><a href="/#lien-he">Liên hệ</a></li>
       </ul>
-      <a href="tel:0903489238" class="header-hotline">0903 489 238</a>
+
+      <div class="header-right">
+        <a href="tel:0903489238" class="header-hotline">0903 489 238</a>
+        <button type="button" class="mobile-menu-btn" onclick="openMobileMenu()" aria-label="Mở menu">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Menu trượt di động -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-backdrop" onclick="closeMobileMenu()"></div>
+    <div class="drawer-panel">
+      <div>
+        <div class="drawer-header">
+          <div>
+            <span class="brand-name" style="font-size:18px;">Ocean Home</span>
+            <p style="font-size:11px;color:var(--accent);font-weight:600;">Đẹp - Chuẩn - Tiết Kiệm</p>
+          </div>
+          <button type="button" class="drawer-close" onclick="closeMobileMenu()">×</button>
+        </div>
+        <ul class="drawer-nav">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/#ve-chung-toi">Về chúng tôi</a></li>
+          <li><a href="/#dich-vu">Dịch vụ</a></li>
+          <li><a href="du-an.html">Dự án</a></li>
+          <li><a href="/#lien-he">Liên hệ</a></li>
+        </ul>
+      </div>
+      <a href="tel:0903489238" class="header-hotline" style="justify-content:center;padding:12px;">📞 0903 489 238</a>
+    </div>
+  </div>
 
   <section class="page-hero">
     <div class="container">
       <span>Công trình thực tế</span>
       <h1>Dự Án Thiết Kế &amp; Thi Công Trọn Gói</h1>
-      <p>Khám phá các công trình nhà phố, biệt thự, văn phòng, khách sạn, công nghiệp được đội ngũ Kiến trúc sư &amp; Kỹ sư Ocean Home kiến tạo.</p>
+      <p>Khám phá các công trình nhà phố, biệt thự, văn phòng, khách sạn được đội ngũ Kiến trúc sư &amp; Kỹ sư Ocean Home kiến tạo.</p>
     </div>
   </section>
 
@@ -120,7 +206,6 @@
       <button class="filter-btn" data-cat="Biệt Thự">Biệt Thự</button>
       <button class="filter-btn" data-cat="Văn Phòng">Văn Phòng</button>
       <button class="filter-btn" data-cat="Khách Sạn">Khách Sạn</button>
-      <button class="filter-btn" data-cat="Công Nghiệp">Công Nghiệp</button>
     </div>
 
     <div class="projects-grid" id="projects-container">
@@ -128,11 +213,12 @@
     </div>
   </main>
 
+  <!-- Modal xem chi tiết công trình -->
   <div class="article-modal" id="article-modal" onclick="if(event.target===this) closeArticle()">
     <div class="article-box">
       <button class="article-close" onclick="closeArticle()">×</button>
       <span id="modal-cat" style="color:var(--accent); font-weight:700; font-size:13px; text-transform:uppercase;"></span>
-      <h2 id="modal-title" style="font-size:26px; color:var(--primary); margin-top:4px;"></h2>
+      <h2 id="modal-title" style="font-size:25px; color:var(--primary); margin-top:4px;"></h2>
       <img id="modal-cover" class="article-cover" src="" alt="">
       <div class="article-specs">
         <div><strong>Chủ đầu tư:</strong> <span id="modal-client"></span></div>
@@ -152,15 +238,32 @@
   <script>
     let allProjects = [];
 
+    function openMobileMenu() {
+      document.getElementById('mobile-drawer').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobile-drawer').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     async function loadProjects() {
       try {
         const res = await fetch('data/projects.json?v=' + Date.now());
         const data = await res.json();
         allProjects = data.items || [];
+
         const urlParams = new URLSearchParams(window.location.search);
         const initialCat = urlParams.get('cat') || 'all';
+        const articleId = urlParams.get('id');
+
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === initialCat));
         renderProjects(initialCat);
+
+        // Nếu bấm trực tiếp từ một dự án ở trang chủ (?id=0,1,2...), mở ngay bài viết chi tiết đó
+        if (articleId !== null && allProjects[Number(articleId)]) {
+          openArticle(Number(articleId));
+        }
       } catch (e) {
         document.getElementById('projects-container').innerHTML = '<p style="grid-column:1/-1;text-align:center;">Chưa có dữ liệu dự án.</p>';
       }
@@ -214,11 +317,13 @@
       document.getElementById('modal-body').innerHTML = marked.parse(p.body || '');
       document.getElementById('article-modal').classList.add('open');
       document.body.style.overflow = 'hidden';
+      try { history.replaceState(null, '', 'du-an.html?id=' + index); } catch (e) {}
     }
 
     function closeArticle() {
       document.getElementById('article-modal').classList.remove('open');
       document.body.style.overflow = '';
+      try { history.replaceState(null, '', 'du-an.html'); } catch (e) {}
     }
 
     loadProjects();
